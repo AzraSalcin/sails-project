@@ -7,48 +7,59 @@
 
 module.exports = {
 
-  attributes: {
-      firstname : {
-          type: 'string',
-          required : true
-      },
-    lastname: {
-          type: 'string',
-          required : true,
-       },
-    birthdate: {
-         type : 'date',
-         required : true        
-    },
-    username: {
-        type: 'string',
-        required : true,
-        alphanumeric : true,
-        maxLength : 20,
-        unique : true,
-     },
-    country: {
-        type : 'string',
-        enum : ['BIH', 'UK', 'USA']
-    },
-    email: {
-        type :'string',
-        email : true,
-        required : true,
-        unique : true
-    },
-    image: {
-        type : 'string',
-        defaultsTo : 'http://icons.iconarchive.com/icons/hopstarter/superhero-avatar/256/Avengers-Black-Widow-icon.png'
-    },
-    gender: {
-        type : 'string',
-        enum : ['Male', 'Female', 'Other'],
-        required : true,
-    },    
+    attributes: {
+        firstName: {
+            type: 'string',
+            required: true
+        },
+        lastName: {
+            type: 'string',
+            required: true
+        },
+        birthDate: {
+            type: 'date',
+            required: true
+        },
+        username: {
+            type: 'string',
+            required: true,
+            alphanumeric: true,
+            maxLength: 20,
+            unique: true
+        },
+        country: {
+            type: 'string',
+            enum: ['Bosnia and Herzegovina', 'Croatia', 'Serbia', 'Slovenia', 'Montenegro', 'USA']
+        },
+        image: {
+            type: 'string',
+            defaultsTo: 'http://www.freebanking.org/avatars/schuler.png'
+        },
+        email: {
+            type: 'string',
+            email: true,
+            required: true,
+            unique: true
+        },
+        gender: {
+            type: 'string',
+            enum: ['Male', 'Female', 'Other'],
+            required: true
+        },
 
+        cars: {
+            collection: 'car',
+            via: 'ownerUser'
+        },
+        balance: {
+            collections: 'balance',
+            via: 'userOwner'
+        }
+    },
 
-  }
-  
 };
+
+
+
+
 
