@@ -53,27 +53,27 @@ spendByUser: function(buyerId, sellerId, buyerEntity, sellerEntity, amount) {
             }
         })
     }
-    else if(buyerEntity === "shop"){
+    else if (buyerEntity === "shop") {
         shop.findOne({ id: buyerId }).exec(function(err, user) {
             if (err) {
                 throw err;
             }
             else {
                 Balance.findOne({ id: shop.balance }).exec(function(err, shopBalance) {
-                    if(err){
+                    if (err) {
                         throw err;
                     }
                     else {
-                    buyerBalanceNumber = shopBalance.balanceNumber;
+                        buyerBalanceNumber = shopBalance.balanceNumber;
                     }
                 })
 
             }
         )}
-    }
+}
     else{
-        return{error: "BuyerEntity must be user or shop!!!"}
-    }
+    return { error: "BuyerEntity must be user or shop!!!" }
+}
 }
 
 };
